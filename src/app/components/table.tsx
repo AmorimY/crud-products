@@ -5,10 +5,10 @@ import useFetch from "../hooks/useFetch";
 import ProductButton from "./ProductButton";
 
 export default function Table() {
-  let [product,setProduct] = useFetch("http://44.201.160.235:2000/product");
+  let [product,setProduct] = useFetch("http://localhost:2000/product");
   console.log(product)
   const handlerDelete = (id : string) =>{
-  axios.delete(`http://44.201.160.235:2000/product/${id}`)
+  axios.delete(`http://localhost:2000/product/${id}`)
   .then((res) => {
     console.log(res.data)
     setProduct(prevProducts => prevProducts.filter(product => product._id !== id));

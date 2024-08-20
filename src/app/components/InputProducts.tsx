@@ -12,7 +12,7 @@ export default function InputProducts({ edit, id }: any) {
   if (id) {
     useEffect(() => {
       axios
-        .get(`http://44.201.160.235:2000/product/${id}`)
+        .get(`http://localhost:2000/product/${id}`)
         .then((res) => {
           console.log(res.status)
           setSendingData(res.data);
@@ -48,7 +48,7 @@ export default function InputProducts({ edit, id }: any) {
   };
   const handlerSubmit = (e :any) => {
     e.preventDefault()
-    axios.patch(`http://44.201.160.235:2000/product/${id}`, sendingData).then((res) => {
+    axios.patch(`http://localhost:2000/product/${id}`, sendingData).then((res) => {
       console.log(res.status);
       console.log("alterado")
 
@@ -58,7 +58,7 @@ export default function InputProducts({ edit, id }: any) {
       const handlerSubmit = (e: any) => {
         e.preventDefault();
         console.log(sendingData);
-        axios.post("http://44.201.160.235:2000/product", sendingData).then((res) => {
+        axios.post("http://localhost:2000/product", sendingData).then((res) => {
           console.log(res.status);
           console.log("criado")
         });
